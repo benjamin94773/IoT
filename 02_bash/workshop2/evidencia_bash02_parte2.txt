@@ -1,0 +1,105 @@
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash\assets\ubuntu_img> docker build -t ubuntu-bash-lab .
+[+] Building 1.0s (10/10) FINISHED                                                                                         docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                       0.0s
+ => => transferring dockerfile: 265B                                                                                                       0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                           0.6s
+ => [auth] library/ubuntu:pull token for registry-1.docker.io                                                                              0.0s
+ => [internal] load .dockerignore                                                                                                          0.0s
+ => => transferring context: 2B                                                                                                            0.0s
+ => [1/4] FROM docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b                     0.0s
+ => => resolve docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b                     0.0s
+ => [internal] load build context                                                                                                          0.0s
+ => => transferring context: 32B                                                                                                           0.0s
+ => CACHED [2/4] RUN apt-get update && apt-get install -y     bash     coreutils     grep     gawk     procps     nano     && rm -rf /var  0.0s
+ => CACHED [3/4] WORKDIR /app                                                                                                              0.0s
+ => CACHED [4/4] COPY . /app                                                                                                               0.0s
+ => exporting to image                                                                                                                     0.1s
+ => => exporting layers                                                                                                                    0.0s
+ => => exporting manifest sha256:fd7f5c5cc9c57a92af1a1fb79fd155e8e695d8811336253a9b77a9cee45268c8                                          0.0s
+ => => exporting config sha256:18960947bed146928cde496a95cb855813dc10f3f16e7698e7f13535a926c9d9                                            0.0s
+ => => exporting attestation manifest sha256:f64e1365ca6074a3d48778f9559774ccc1efbabe7f00147c097c3cf5ef5a3c4a                              0.0s
+ => => exporting manifest list sha256:9b7bf3530c7d4f50c009ec88c0c47d6dad740568f17f43e1979aa9476434d66c                                     0.0s
+ => => naming to docker.io/library/ubuntu-bash-lab:latest                                                                                  0.0s
+ => => unpacking to docker.io/library/ubuntu-bash-lab:latest                                                                               0.0s
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash\assets\ubuntu_img> docker run -it --name ubuntu-lab ubuntu-bash-lab
+root@3e22394c2884:/app# cd /app
+root@3e22394c2884:/app# ls -la
+total 12
+drwxr-xr-x 1 root root 4096 Aug 30 21:14 .
+drwxr-xr-x 1 root root 4096 Sep  5 17:50 ..
+-rwxr-xr-x 1 root root  226 Aug 30 17:12 Dockerfile
+root@3e22394c2884:/app#
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> docker build -t ejemplo-cmd assets/workshop_2/case_cmd
+[+] Building 0.7s (5/5) FINISHED                                                                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                       0.0s
+ => => transferring dockerfile: 87B                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                           0.4s
+ => [internal] load .dockerignore                                                                                                          0.0s
+ => => transferring context: 2B                                                                                                            0.0s
+ => CACHED [1/1] FROM docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b              0.0s
+ => => resolve docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b                     0.0s
+ => exporting to image                                                                                                                     0.1s
+ => => exporting layers                                                                                                                    0.0s
+ => => exporting manifest sha256:3ed3aa4d84c511c9c3bf3da13d378c368476a3276d537aef409d2450993e71d8                                          0.0s
+ => => exporting config sha256:bf8cb9f21a90fd894a7f4c0b2ca20fd31f39677463bb206038636ffd59132e2e                                            0.0s
+ => => exporting attestation manifest sha256:a93eb26ac970c8ee681328fd7d111d31b52cbe41907b85801a98a8f6db5b4183                              0.0s
+ => => exporting manifest list sha256:6db59c2480137f3115b41e9aedcce5d7d851f37947798bfeff03fc24dcbee7c6                                     0.0s
+ => => naming to docker.io/library/ejemplo-cmd:latest                                                                                      0.0s
+ => => unpacking to docker.io/library/ejemplo-cmd:latest                                                                                   0.0s
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> docker run --rm ejemplo-cmd                           
+Hola desde CMD
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> docker run --rm ejemplo-cmd echo "Mensaje reemplazado"
+Mensaje reemplazado
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> docker build -t ejemplo-entrypoint assets/workshop_2/case_entrypoint
+[+] Building 0.8s (5/5) FINISHED                                                                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                       0.0s
+ => => transferring dockerfile: 76B                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                           0.4s
+ => [internal] load .dockerignore                                                                                                          0.0s
+ => => transferring context: 2B                                                                                                            0.0s
+ => CACHED [1/1] FROM docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b              0.0s
+ => => resolve docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b                     0.0s
+ => exporting to image                                                                                                                     0.1s
+ => => exporting layers                                                                                                                    0.0s
+ => => exporting manifest sha256:e98a316fa79fd45fd55f4a89c65093ae3375bbf5403f90fdd0fa105143d67287                                          0.0s
+ => => exporting config sha256:73228b9a057d67d302bb2bf72144651db07dc5d1bacb047df8d9b8b9c59b636d                                            0.0s
+ => => exporting attestation manifest sha256:05151829ffe48a55abb9027fa176cc9efe5fffd54c98297d762d5b6ce62f1a08                              0.0s
+ => => exporting manifest list sha256:113db3ad21fbdb9fcd194b5eff6f8ed9f1cccdb259521d671adb5ec5bce14cc9                                     0.0s
+ => => naming to docker.io/library/ejemplo-entrypoint:latest                                                                               0.0s
+ => => unpacking to docker.io/library/ejemplo-entrypoint:latest                                                                            0.0s
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> docker run --rm ejemplo-entrypoint "Hola"
+Hola
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> docker run --rm ejemplo-entrypoint "Mensaje adicional"
+Mensaje adicional
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> docker build -t ejemplo-combinado assets/workshop_2/case_combined
+[+] Building 1.0s (6/6) FINISHED                                                                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                       0.0s
+ => => transferring dockerfile: 105B                                                                                                       0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                           0.6s
+ => [auth] library/ubuntu:pull token for registry-1.docker.io                                                                              0.0s
+ => [internal] load .dockerignore                                                                                                          0.0s
+ => => transferring context: 2B                                                                                                            0.0s
+ => CACHED [1/1] FROM docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b              0.0s
+ => => resolve docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b                     0.0s
+ => exporting to image                                                                                                                     0.1s
+ => => exporting layers                                                                                                                    0.0s
+ => => exporting manifest sha256:d4f9e5e34f52fae5eefa05060fd9153d58476371da2d3ed33d5ad0a6f807acfd                                          0.0s
+ => => exporting config sha256:b139486132307837949646b89890488e6ef915bedf12ece9df6e5c36bf8629a3                                            0.0s
+ => => exporting attestation manifest sha256:cc300ddc24dae808359754b69cc6f1e78db516330f38f2eafd8a4d5d591e4808                              0.0s
+ => => exporting manifest list sha256:ef1fc1eec6c4e9cd1567029736014bb101e3c9c867fe3da7517bf94a5cc16e71                                     0.0s
+ => => naming to docker.io/library/ejemplo-combinado:latest                                                                                0.0s
+ => => unpacking to docker.io/library/ejemplo-combinado:latest                                                                             0.0s
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> docker run --rm ejemplo-combinado
+Mensaje por defecto
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> docker run --rm ejemplo-combinado "Mensaje personalizado"
+Mensaje personalizado
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> docker image ls
+                                                                                                                            i Info →   U  In Use
+IMAGE                       ID             DISK USAGE   CONTENT SIZE   EXTRA
+ejemplo-cmd:latest          6db59c248013        157MB         41.6MB        
+ejemplo-combinado:latest    ef1fc1eec6c4        157MB         41.6MB        
+ejemplo-entrypoint:latest   113db3ad21fb        157MB         41.6MB        
+ubuntu-bash-lab:latest      9b7bf3530c7d        162MB           43MB    U   
+ubuntu-bash:latest          140246aa50d2        162MB           43MB    U   
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> 
+

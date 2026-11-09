@@ -1,0 +1,128 @@
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ nano saludo.sh
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ chmod +x saludo.sh
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ ./saludo.sh
+Hola Mundo
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ nano variables.sh
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ nano entrada.sh
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ if [ -f archivo.txt ]
+then
+    echo "Existe"
+else
+    echo "No existe"
+fi
+No existe
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ touch archivo.txt
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ if [ -f archivo.txt ]; then     echo "Existe"; else     echo "No existe"; fi
+Existe
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ for i in {1..10}
+do
+    echo $i
+done
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ contador=1
+
+while [ $contador -le 5 ]
+do
+    echo $contador
+    contador=$((contador+1))
+done
+1
+2
+3
+4
+5
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ saludar(){
+
+echo "Hola"
+
+}
+
+saludar
+Hola
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ nano script.sh
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ ./script.sh Juan Pérez
+Primer parámetro: Juan
+Segundo parámetro: Pérez
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ ls
+
+echo $?
+archivo.txt  entrada.sh*  evidencia.txt  saludo.sh*  script.sh*  variables.sh*  workshop_3.md
+0
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ ls inexistente
+
+echo $?
+ls: cannot access 'inexistente': No such file or directory
+2
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ mkdir inexistente
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ ls inexistente
+
+echo $?
+0
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ nano copiar_txt.sh
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ nano backup.sh
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ chmod +x copiar_txt.sh backup.sh
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ ./copiar_txt.sh 
+[2026-11-08 16:50:28] [ÉXITO] Se copiaron 2 archivo(s) a la carpeta txt_backup_2026-11-08.
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_3
+$ ./backup.sh 
+Ingrese la ruta del directorio a respaldar: inexistente
+----------------------------------------
+           RESUMEN DEL RESPALDO         
+----------------------------------------
+Fecha:               2026-11-08 16:50:46
+Archivos respaldados: 1
+Tamaño del respaldo: 1.0K
+Estado del proceso:  EXITOSO
+Archivo generado:    backup/backup_inexistente_2026-11-08_16-50-46.tar.gz
+----------------------------------------

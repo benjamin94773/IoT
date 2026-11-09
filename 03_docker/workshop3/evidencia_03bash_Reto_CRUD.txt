@@ -1,0 +1,86 @@
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop3> curl.exe -s http://localhost:8082/products/1
+{"product":{"id":1,"name":"Laptop","price":3500000.0},"served_by":"api-1"}
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop3> 1..6 | ForEach-Object {
+>>     curl.exe -s -H "Connection: close" http://localhost:8082/products/1
+>>     Write-Output ""
+>> }
+{"product":{"id":1,"name":"Laptop","price":3500000.0},"served_by":"api-1"}
+
+{"product":{"id":1,"name":"Laptop","price":3500000.0},"served_by":"api-1"}
+
+{"product":{"id":1,"name":"Laptop","price":3500000.0},"served_by":"api-2"}
+
+{"product":{"id":1,"name":"Laptop","price":3500000.0},"served_by":"api-3"}
+
+{"product":{"id":1,"name":"Laptop","price":3500000.0},"served_by":"api-1"}
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop3> curl.exe -i http://localhost:8082/products/999
+HTTP/1.1 404 NOT FOUND
+Server: nginx/1.31.5
+Date: Sat, 05 Sep 2026 22:05:40 GMT
+Content-Type: application/json
+Content-Length: 35
+Connection: keep-alive
+
+{"error":"Producto no encontrado"}
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop3> curl.exe -s -X POST http://localhost:8082/products `
+>>   -H "Content-Type: application/json" `
+>>   -d '{\"name\":\"Webcam\",\"price\":220000}'
+{"product":{"id":6,"name":"Webcam","price":220000.0},"served_by":"api-1"}
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop3> 1..6 | ForEach-Object {
+>>     curl.exe -s -H "Connection: close" http://localhost:8082/products/6
+>>     Write-Output ""
+>> }
+{"product":{"id":6,"name":"Webcam","price":220000.0},"served_by":"api-2"}
+
+{"product":{"id":6,"name":"Webcam","price":220000.0},"served_by":"api-3"}
+
+{"product":{"id":6,"name":"Webcam","price":220000.0},"served_by":"api-1"}
+
+{"product":{"id":6,"name":"Webcam","price":220000.0},"served_by":"api-2"}
+
+{"product":{"id":6,"name":"Webcam","price":220000.0},"served_by":"api-3"}
+
+{"product":{"id":6,"name":"Webcam","price":220000.0},"served_by":"api-1"}
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop3> Invoke-RestMethod `
+>>   -Uri "http://localhost:8082/products/6" `
+>>   -Method Put `
+>>   -ContentType "application/json" `
+>>   -Body $body
+
+product                                 served_by
+-------                                 ---------
+@{id=6; name=Webcam HD; price=280000,0} api-3    
+
+
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop3> 1..6 | ForEach-Object {
+>>     curl.exe -s -H "Connection: close" http://localhost:8082/products/6
+>>     Write-Output ""
+>> }
+{"product":{"id":6,"name":"Webcam HD","price":280000.0},"served_by":"api-1"}
+
+{"product":{"id":6,"name":"Webcam HD","price":280000.0},"served_by":"api-2"}
+
+{"product":{"id":6,"name":"Webcam HD","price":280000.0},"served_by":"api-3"}
+
+{"product":{"id":6,"name":"Webcam HD","price":280000.0},"served_by":"api-1"}
+
+{"product":{"id":6,"name":"Webcam HD","price":280000.0},"served_by":"api-2"}
+
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop3> Invoke-RestMethod `
+>>   -Uri "http://localhost:8082/products/6" `
+>>   -Method Delete
+
+deleted                                 served_by
+-------                                 ---------
+@{id=6; name=Webcam HD; price=280000,0} api-2    
+
+
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop3> curl.exe -i http://localhost:8082/products/6
+HTTP/1.1 404 NOT FOUND
+Server: nginx/1.31.5
+Date: Sat, 05 Sep 2026 22:12:52 GMT
+Content-Type: application/json
+Content-Length: 35
+Connection: keep-alive
+
+{"error":"Producto no encontrado"}

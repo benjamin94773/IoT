@@ -1,0 +1,289 @@
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop2> docker compose down --remove-orphans
+[+] down 5/5
+ ✔ Container workshop2-nginx-1    Removed                                                                                                   0.4s
+ ✔ Container workshop2-users2-1   Removed                                                                                                   3.4s
+ ✔ Container workshop2-users1-1   Removed                                                                                                   3.3s
+ ✔ Container workshop2-products-1 Removed                                                                                                   3.4s
+ ✔ Network workshop2_default      Removed                                                                                                   0.3s
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop2> docker compose config
+name: workshop2
+services:
+  nginx:
+    depends_on:
+      orders1:
+        condition: service_started
+        required: true
+      orders2:
+        condition: service_started
+        required: true
+      products:
+        condition: service_started
+        required: true
+      users1:
+        condition: service_started
+        required: true
+      users2:
+        condition: service_started
+        required: true
+    image: nginx:alpine
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8081"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop2\nginx\nginx.conf
+        target: /etc/nginx/conf.d/default.conf
+        read_only: true
+        bind: {}
+  orders1:
+    build:
+      context: C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop2\orders
+      dockerfile: Dockerfile
+    environment:
+      INSTANCE: orders-1
+    networks:
+      default: null
+  orders2:
+    build:
+      context: C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop2\orders
+      dockerfile: Dockerfile
+    environment:
+      INSTANCE: orders-2
+    networks:
+      default: null
+  products:
+    build:
+      context: C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop2\products
+      dockerfile: Dockerfile
+    networks:
+      default: null
+  users1:
+    build:
+      context: C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop2\users
+      dockerfile: Dockerfile
+    environment:
+      INSTANCE: users-1
+    networks:
+      default: null
+  users2:
+    build:
+      context: C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop2\users
+      dockerfile: Dockerfile
+    environment:
+      INSTANCE: users-2
+    networks:
+      default: null
+networks:
+  default:
+    name: workshop2_default
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop2> docker compose up --build -d
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.78kB 0.0s done
+#1 DONE 0.0s
+
+#2 [users2 internal] load build definition from Dockerfile
+#2 transferring dockerfile: 217B done
+#2 DONE 0.0s
+
+#3 [orders2 internal] load build definition from Dockerfile
+#3 transferring dockerfile: 215B done
+#3 DONE 0.0s
+
+#4 [products internal] load build definition from Dockerfile
+#4 transferring dockerfile: 217B done
+#4 DONE 0.0s
+
+#5 [auth] library/python:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [products internal] load metadata for docker.io/library/python:3.12-slim
+#6 DONE 0.6s
+
+#7 [products internal] load .dockerignore
+#7 transferring context: 2B done
+#7 DONE 0.0s
+
+#8 [users1 internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [orders1 internal] load .dockerignore
+#9 transferring context: 2B done
+#9 DONE 0.1s
+
+#10 [orders2 1/5] FROM docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
+#10 resolve docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea 0.0s done
+#10 DONE 0.0s
+
+#11 [products internal] load build context
+#11 transferring context: 63B done
+#11 DONE 0.0s
+
+#12 [users2 internal] load build context
+#12 transferring context: 63B done
+#12 DONE 0.0s
+
+#13 [users2 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#13 CACHED
+
+#14 [users2 3/5] COPY requirements.txt .
+#14 CACHED
+
+#15 [products 2/5] WORKDIR /app
+#15 CACHED
+
+#16 [products 3/5] COPY requirements.txt .
+#16 CACHED
+
+#17 [products 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#17 CACHED
+
+#18 [products 5/5] COPY app.py .
+#18 CACHED
+
+#19 [users2 5/5] COPY app.py .
+#19 CACHED
+
+#20 [users2] exporting to image
+#20 exporting layers done
+#20 exporting manifest sha256:953599b4563067d00d1d61ca3ae87ffe910c4d21f0423ebf930e97a7c7a30d12 done
+#20 exporting config sha256:e5dfde81ef6cceccc0e002dd2a357fa309727a5244262b4d597baf488d2a5db4 done
+#20 ...
+
+#21 [orders2 internal] load build context
+#21 transferring context: 436B done
+#21 DONE 0.1s
+
+#15 [orders1 2/5] WORKDIR /app
+#15 CACHED
+
+#22 [orders1 3/5] COPY requirements.txt .
+#22 CACHED
+
+#23 [orders1 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#23 CACHED
+
+#20 [users2] exporting to image
+#20 exporting attestation manifest sha256:32eed2f94d1a79aa3c72b4830aca88c2f5305b5dec274ffd6a0bcea3361b8802
+#20 ...
+
+#24 [orders2 5/5] COPY app.py .
+#24 DONE 0.1s
+
+#25 [users1] exporting to image
+#25 exporting layers done
+#25 exporting manifest sha256:beb5920c0347a77aa85346ae335e169037287305fd074c14b7ee9eb2c22936d0 done
+#25 exporting config sha256:59960422a95f8957da34a19a7546e216b22f6cd7c28f793cba9c7b9137fe53da done
+#25 exporting attestation manifest sha256:d5b3238c5eeb860836e75d59833ff3577738e2efbed1cf383ae564dcdb99317f 0.1s done
+#25 exporting manifest list sha256:fbf9229278226d2bb5f2854bc860bb0d20817f36028223e08f7d98bdae000922 0.0s done
+#25 naming to docker.io/library/workshop2-users1:latest 0.0s done
+#25 unpacking to docker.io/library/workshop2-users1:latest 0.0s done
+#25 DONE 0.2s
+
+#20 [users2] exporting to image
+#20 exporting attestation manifest sha256:32eed2f94d1a79aa3c72b4830aca88c2f5305b5dec274ffd6a0bcea3361b8802 0.1s done
+#20 exporting manifest list sha256:98a783075d91bd30249ca12a000231f2c65f75c7dc65d3a403b17ebc02b0e174 0.1s done
+#20 naming to docker.io/library/workshop2-users2:latest 0.0s done
+#20 unpacking to docker.io/library/workshop2-users2:latest 0.0s done
+#20 DONE 0.2s
+
+#26 [products] exporting to image
+#26 exporting layers done
+#26 exporting manifest sha256:e6b59b8c97ec211ca16f4368914e35bd702a6eaed75a5cf0c55b59aae9e3e4dd done
+#26 exporting config sha256:d26092049fdce91448f53c84afbb5b858f27d208cff0b85ec390cdaa747fa259 done
+#26 exporting attestation manifest sha256:f5e9864b42a7e3a2a01bc9decc8235e22dc34597b1bed34547b8670b23f07ac7 0.1s done
+#26 exporting manifest list sha256:06664ea9c075a7613520a46e11e51c43f1475fcbed3a83de2e3ffa103765f90c 0.0s done
+#26 naming to docker.io/library/workshop2-products:latest 0.0s done
+#26 unpacking to docker.io/library/workshop2-products:latest 0.0s done
+#26 DONE 0.2s
+
+#27 [orders2] exporting to image
+#27 exporting layers 0.2s done
+#27 exporting manifest sha256:f014d2cb5eb06b9bc233a8e3652e5dd6cfb96ba81ba7f70db5bdb018a599544f 0.0s done
+#27 exporting config sha256:d51467a20111881afe89f602a486dc07488538a4aaa96630490c93ce4538130d 0.0s done
+#27 exporting attestation manifest sha256:fa1cfe1526c1d814abaf953a5a5c4b9f87fbfeec940f21a2d91b587a9b1ce563
+#27 exporting attestation manifest sha256:fa1cfe1526c1d814abaf953a5a5c4b9f87fbfeec940f21a2d91b587a9b1ce563 0.0s done
+#27 exporting manifest list sha256:6be624d9ef71375971aa31b74b9b4e5c878f3142c7d3540e638794c6e2b64206 0.0s done
+#27 naming to docker.io/library/workshop2-orders2:latest done
+#27 unpacking to docker.io/library/workshop2-orders2:latest 0.0s done
+#27 DONE 0.5s
+
+#28 [orders1] exporting to image
+#28 exporting layers 0.2s done
+#28 exporting manifest sha256:99cb684b3d5f4e4a3f3cd4b4ff8c531c232dd422c9f8d20f1537144a636b6716 0.0s done
+#28 exporting config sha256:5bdc8a862376468b944947351f876c5a323d6e0e8e825d1faefb70a81d2e5374 0.0s done
+#28 exporting attestation manifest sha256:6604b70742fcddb551d1eed2a15e7c42fcc6fb92da4415db1f8e6b68511d1030 0.0s done
+#28 exporting manifest list sha256:6691f82fcf64ece0f25540e8dd0d8436ba1fe52de46b35b2f23c024fbf2d4012 0.0s done
+#28 naming to docker.io/library/workshop2-orders1:latest 0.0s done
+#28 unpacking to docker.io/library/workshop2-orders1:latest 0.1s done
+#28 DONE 0.5s
+
+#29 [users1] resolving provenance for metadata file
+#29 DONE 0.1s
+
+#30 [users2] resolving provenance for metadata file
+#30 DONE 0.1s
+
+#31 [products] resolving provenance for metadata file
+#31 DONE 0.1s
+
+#32 [orders2] resolving provenance for metadata file
+#32 DONE 0.0s
+
+#33 [orders1] resolving provenance for metadata file
+#33 DONE 0.0s
+[+] up 12/12
+ ✔ Image workshop2-users1         Built                                                                                                     1.9s
+ ✔ Image workshop2-users2         Built                                                                                                     1.9s
+ ✔ Image workshop2-products       Built                                                                                                     1.9s
+ ✔ Image workshop2-orders1        Built                                                                                                     1.9s
+ ✔ Image workshop2-orders2        Built                                                                                                     1.9s
+ ✔ Network workshop2_default      Created                                                                                                   0.0s
+ ✔ Container workshop2-orders1-1  Started                                                                                                   0.4s
+ ✔ Container workshop2-users2-1   Started                                                                                                   0.5s
+ ✔ Container workshop2-products-1 Started                                                                                                   0.4s
+ ✔ Container workshop2-orders2-1  Started                                                                                                   0.4s
+ ✔ Container workshop2-users1-1   Started                                                                                                   0.4s
+ ✔ Container workshop2-nginx-1    Started                                                                                                   0.5s
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop2> docker compose ps
+NAME                   IMAGE                COMMAND                  SERVICE    CREATED         STATUS         PORTS
+workshop2-nginx-1      nginx:alpine         "/docker-entrypoint.…"   nginx      2 seconds ago   Up 1 second    0.0.0.0:8081->80/tcp, [::]:8081->80/tcp
+workshop2-orders1-1    workshop2-orders1    "python app.py"          orders1    2 seconds ago   Up 2 seconds   5000/tcp
+workshop2-orders2-1    workshop2-orders2    "python app.py"          orders2    2 seconds ago   Up 2 seconds   5000/tcp
+workshop2-products-1   workshop2-products   "python app.py"          products   2 seconds ago   Up 2 seconds   5000/tcp
+workshop2-users1-1     workshop2-users1     "python app.py"          users1     2 seconds ago   Up 2 seconds   5000/tcp
+workshop2-users2-1     workshop2-users2     "python app.py"          users2     2 seconds ago   Up 2 seconds   5000/tcp
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop2>
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop2> 1..12 | ForEach-Object {
+>>     curl.exe -s -H "Connection: close" http://localhost:8081/api/orders/
+>>     Write-Output ""
+>> }
+{"instance":"orders-2","message":"Servicio de pedidos","service":"orders"}
+
+{"instance":"orders-1","message":"Servicio de pedidos","service":"orders"}
+
+{"instance":"orders-2","message":"Servicio de pedidos","service":"orders"}
+
+{"instance":"orders-1","message":"Servicio de pedidos","service":"orders"}
+
+{"instance":"orders-2","message":"Servicio de pedidos","service":"orders"}
+
+{"instance":"orders-1","message":"Servicio de pedidos","service":"orders"}
+
+{"instance":"orders-2","message":"Servicio de pedidos","service":"orders"}
+
+{"instance":"orders-1","message":"Servicio de pedidos","service":"orders"}
+
+{"instance":"orders-2","message":"Servicio de pedidos","service":"orders"}
+
+{"instance":"orders-1","message":"Servicio de pedidos","service":"orders"}
+
+{"instance":"orders-2","message":"Servicio de pedidos","service":"orders"}
+
+{"instance":"orders-1","message":"Servicio de pedidos","service":"orders"}
+
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\03_docker\workshop2> 

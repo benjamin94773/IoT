@@ -1,0 +1,206 @@
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> docker compose up -d
+[+] up 2/2
+ ✔ Network workshop3_default Created                                                                                                        0.0s
+ ✔ Container workshop3-web-1 Started                                                                                                        0.3s
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> docker compose ps
+NAME              IMAGE          COMMAND                  SERVICE   CREATED         STATUS         PORTS
+workshop3-web-1   nginx:alpine   "/docker-entrypoint.…"   web       5 seconds ago   Up 5 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> docker compose logs web
+web-1  | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+web-1  | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+web-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+web-1  | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+web-1  | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+web-1  | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+web-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+web-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+web-1  | /docker-entrypoint.sh: Configuration complete; ready for start up
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: using the "epoll" event method
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: nginx/1.31.5
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: built by gcc 15.2.0 (Alpine 15.2.0) 
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: OS: Linux 6.18.33.2-microsoft-standard-WSL2
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: start worker processes
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: start worker process 30
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: start worker process 31
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: start worker process 32
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: start worker process 33
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: start worker process 34
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: start worker process 35
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: start worker process 36
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: start worker process 37
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: start worker process 38
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: start worker process 39
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: start worker process 40
+web-1  | 2026/09/05 18:17:59 [notice] 1#1: start worker process 41
+web-1  | 172.19.0.1 - - [05/Sep/2026:18:18:12 +0000] "GET / HTTP/1.1" 200 896 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36(KHTML, like Gecko) Code/1.136.1 Chrome/148.0.7778.280 Electron/42.10.0 Safari/537.36" "-"
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> 
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> 
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> docker compose down
+[+] down 2/2
+ ✔ Container workshop3-web-1 Removed                                                                                                        0.4s
+ ✔ Network workshop3_default Removed                                                                                                        0.2s
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3>
+
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> docker compose up --build -d
+#1 [internal] load local bake definitions
+#1 reading from stdin 635B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 354B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:latest
+#3 ...
+
+#4 [auth] library/ubuntu:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:latest
+#3 DONE 0.7s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [1/6] FROM docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b
+#6 resolve docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b 0.0s done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 915B done
+#7 DONE 0.0s
+
+#8 [2/6] RUN apt-get update && apt-get install -y     bash     coreutils     grep     gawk     procps     && rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [3/6] WORKDIR /app
+#9 CACHED
+
+#10 [4/6] COPY monitor.sh /app/monitor.sh
+#10 DONE 0.0s
+
+#11 [5/6] COPY analiza.sh /app/analiza.sh
+#11 DONE 0.1s
+
+#12 [6/6] RUN chmod +x /app/monitor.sh /app/analiza.sh
+#12 DONE 0.3s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 0.3s done
+#13 exporting manifest sha256:bd17b3e027adbb2f8aa709d8c5bf19664074f99cbe82eb5276b314655a23102f 0.0s done
+#13 exporting config sha256:f7afb279869b3c357aa386a35f1e77347d5dd22e01339fc14ab3aa04e2fd6f4d 0.0s done
+#13 exporting attestation manifest sha256:a55e42c7add01e3cb1a6b842dfaf5d0a0a0ba3ab3f6360184cb33a79b3b205e3 0.0s done
+#13 exporting manifest list sha256:8ddf96fd8a45879ece1ac4e2856f33be56720885a78ddf232529b8c1bb185eab
+#13 exporting manifest list sha256:8ddf96fd8a45879ece1ac4e2856f33be56720885a78ddf232529b8c1bb185eab 0.0s done
+#13 naming to docker.io/library/workshop3-ubuntu:latest done
+#13 unpacking to docker.io/library/workshop3-ubuntu:latest 0.1s done
+#13 DONE 0.6s
+
+#14 resolving provenance for metadata file
+#14 DONE 0.0s
+[+] up 4/4
+ ✔ Image workshop3-ubuntu       Built                                                                                                       2.2s
+ ✔ Network workshop3_default    Created                                                                                                     0.0s
+ ✔ Container workshop3-web-1    Started                                                                                                     0.3s
+ ✔ Container workshop3-ubuntu-1 Started                                                                                                     0.3s
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> docker compose ps
+NAME                 IMAGE              COMMAND                  SERVICE   CREATED          STATUS          PORTS
+workshop3-ubuntu-1   workshop3-ubuntu   "bash -lc 'while tru…"   ubuntu    47 seconds ago   Up 46 seconds   
+workshop3-web-1      nginx:alpine       "/docker-entrypoint.…"   web       47 seconds ago   Up 46 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3>
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> docker compose exec ubuntu bash
+root@9222e5037dda:/app# cd /app
+root@9222e5037dda:/app# ./monitor.sh
+===== MONITOR DEL CONTENEDOR =====
+Hostname: 9222e5037dda
+Usuario: root
+Fecha: Sat Sep  5 18:35:36 UTC 2026
+Directorio: /app
+===== DISCO =====
+Filesystem      Size  Used Avail Use% Mounted on
+overlay        1007G  1.8G  954G   1% /
+tmpfs            64M     0   64M   0% /dev
+shm              64M     0   64M   0% /dev/shm
+/dev/sdd       1007G  1.8G  954G   1% /etc/hosts
+C:\             931G  569G  363G  62% /var/log/shared
+tmpfs           4.0K     0  4.0K   0% /proc/acpi
+===== PROCESOS =====
+7
+===== FIN DEL REPORTE =====
+Diagnostico terminado correctamente.
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> docker compose up --build -d   
+#1 [internal] load local bake definitions
+#1 reading from stdin 635B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 354B done
+#2 DONE 0.0s
+
+#3 [auth] library/ubuntu:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/ubuntu:latest
+#4 DONE 0.6s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [1/6] FROM docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b
+#6 resolve docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b 0.0s done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 62B done
+#7 DONE 0.0s
+
+#8 [5/6] COPY analiza.sh /app/analiza.sh
+#8 CACHED
+
+#9 [2/6] RUN apt-get update && apt-get install -y     bash     coreutils     grep     gawk     procps     && rm -rf /var/lib/apt/lists/*
+#9 CACHED
+
+#10 [3/6] WORKDIR /app
+#10 CACHED
+
+#11 [4/6] COPY monitor.sh /app/monitor.sh
+#11 CACHED
+
+#12 [6/6] RUN chmod +x /app/monitor.sh /app/analiza.sh
+#12 CACHED
+
+#13 exporting to image
+#13 exporting layers done
+#13 exporting manifest sha256:bd17b3e027adbb2f8aa709d8c5bf19664074f99cbe82eb5276b314655a23102f done
+#13 exporting config sha256:f7afb279869b3c357aa386a35f1e77347d5dd22e01339fc14ab3aa04e2fd6f4d done
+#13 exporting attestation manifest sha256:d60ffc29eb2922bfd0dbdca9822cdd4c42779cff4f8f8e3bad8aff0c11a8d146 0.0s done
+#13 exporting manifest list sha256:47f52a0cf16a16ae361840c4d40201c95e4b35adebff1c4fa1a771cbeeef6554 0.0s done
+#13 naming to docker.io/library/workshop3-ubuntu:latest done
+#13 unpacking to docker.io/library/workshop3-ubuntu:latest 0.0s done
+#13 DONE 0.1s
+
+#14 resolving provenance for metadata file
+#14 DONE 0.0s
+[+] up 4/4
+ ✔ Image workshop3-ubuntu       Built                                                                                                       1.2s
+ ✔ Network workshop3_default    Created                                                                                                     0.0s
+ ✔ Container workshop3-web-1    Started                                                                                                     0.3s
+ ✔ Container workshop3-ubuntu-1 Started                                                                                                     0.3s
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> docker compose exec ubuntu bash
+root@22b1d0702bb8:/app# exit
+exit
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> docker compose ps              
+NAME                 IMAGE              COMMAND                  SERVICE   CREATED          STATUS          PORTS
+workshop3-ubuntu-1   workshop3-ubuntu   "bash -lc 'while tru…"   ubuntu    40 seconds ago   Up 39 seconds   
+workshop3-web-1      nginx:alpine       "/docker-entrypoint.…"   web       40 seconds ago   Up 39 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> docker compose down            
+[+] down 3/3
+ ✔ Container workshop3-web-1    Removed                                                                                                     0.4s
+ ✔ Container workshop3-ubuntu-1 Removed                                                                                                     3.3s
+ ✔ Network workshop3_default    Removed                                                                                                     0.2s
+PS C:\Users\Benja\OneDrive\Desktop\IOT\Entregables\02_bash\workshop3> 
+

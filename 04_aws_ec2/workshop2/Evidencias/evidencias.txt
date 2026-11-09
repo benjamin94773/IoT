@@ -1,0 +1,305 @@
+ubuntu@ip-172-31-26-92:~$ pwd
+ls -lah
+uptime
+df -h
+free -h
+ps aux
+/home/ubuntu
+total 28K
+drwxr-x--- 4 ubuntu ubuntu 4.0K Nov  8 23:18 .
+drwxr-xr-x 3 root   root   4.0K Nov  8 23:11 ..
+-rw-r--r-- 1 ubuntu ubuntu  220 Feb 13  2026 .bash_logout
+-rw-r--r-- 1 ubuntu ubuntu 3.7K Feb 13  2026 .bashrc
+drwx------ 2 ubuntu ubuntu 4.0K Nov  8 23:18 .cache
+-rw-r--r-- 1 ubuntu ubuntu  807 Feb 13  2026 .profile
+drwx------ 2 ubuntu ubuntu 4.0K Nov  8 23:11 .ssh
+ 23:28:30 up 17 min,  1 user,  load average: 0.00, 0.00, 0.00
+Filesystem       Size  Used Avail Use% Mounted on
+/dev/root        6.7G  2.1G  4.6G  31% /
+tmpfs            455M     0  455M   0% /dev/shm
+tmpfs            182M  892K  181M   1% /run
+efivarfs         128K  3.1K  120K   3% /sys/firmware/efi/efivars
+tmpfs            455M     0  455M   0% /tmp
+none             1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+none             1.0M     0  1.0M   0% /run/credentials/systemd-resolved.service
+/dev/nvme0n1p13  989M   98M  824M  11% /boot
+/dev/nvme0n1p15  105M  6.3M   99M   7% /boot/efi
+none             1.0M     0  1.0M   0% /run/credentials/systemd-networkd.service
+none             1.0M     0  1.0M   0% /run/credentials/serial-getty@ttyS0.service
+none             1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs             91M  8.0K   91M   1% /run/user/1000
+               total        used        free      shared  buff/cache   available
+Mem:           908Mi       299Mi       385Mi       2.7Mi       333Mi       609Mi
+Swap:             0B          0B          0B
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.1  1.7  25240 16028 ?        Ss   23:10   0:02 /sbin/init
+root           2  0.0  0.0      0     0 ?        S    23:10   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    23:10   0:00 [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-rcu_gp]
+root           5  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-sync_wq]
+root           6  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-kvfree_rcu_reclaim]
+root           7  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-slub_flushwq]
+root           8  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-netns]
+root          10  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/0:0H-kblockd]
+root          11  0.0  0.0      0     0 ?        I    23:10   0:00 [kworker/0:1-events]
+root          13  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-mm_percpu_wq]
+root          14  0.0  0.0      0     0 ?        S    23:10   0:00 [ksoftirqd/0]
+root          15  0.0  0.0      0     0 ?        S<   23:10   0:00 [pr/ttyS0]
+root          16  0.0  0.0      0     0 ?        I    23:10   0:00 [rcu_sched]
+root          17  0.0  0.0      0     0 ?        S    23:10   0:00 [rcu_exp_par_gp_kthread_worker/0]
+root          18  0.0  0.0      0     0 ?        S    23:10   0:00 [rcu_exp_gp_kthread_worker]
+root          19  0.0  0.0      0     0 ?        S    23:10   0:00 [migration/0]
+root          20  0.0  0.0      0     0 ?        S    23:10   0:00 [kprobe-optimizer]
+root          21  0.0  0.0      0     0 ?        S    23:10   0:00 [idle_inject/0]
+root          22  0.0  0.0      0     0 ?        S    23:10   0:00 [cpuhp/0]
+root          23  0.0  0.0      0     0 ?        S    23:10   0:00 [cpuhp/1]
+root          24  0.0  0.0      0     0 ?        S    23:10   0:00 [idle_inject/1]
+root          25  0.0  0.0      0     0 ?        S    23:10   0:00 [migration/1]
+root          26  0.0  0.0      0     0 ?        S    23:10   0:00 [ksoftirqd/1]
+root          28  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/1:0H-kblockd]
+root          29  0.0  0.0      0     0 ?        S    23:10   0:00 [kdevtmpfs]
+root          30  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-inet_frag_wq]
+root          31  0.0  0.0      0     0 ?        I    23:10   0:00 [rcu_tasks_kthread]
+root          32  0.0  0.0      0     0 ?        I    23:10   0:00 [rcu_tasks_rude_kthread]
+root          33  0.0  0.0      0     0 ?        S    23:10   0:00 [kauditd]
+root          34  0.0  0.0      0     0 ?        S    23:10   0:00 [khungtaskd]
+root          35  0.0  0.0      0     0 ?        S    23:10   0:00 [oom_reaper]
+root          37  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-writeback]
+root          38  0.0  0.0      0     0 ?        S    23:10   0:00 [kcompactd0]
+root          39  0.0  0.0      0     0 ?        I    23:10   0:00 [kworker/u8:2-events_unbound]
+root          40  0.0  0.0      0     0 ?        SN   23:10   0:00 [ksmd]
+root          41  0.0  0.0      0     0 ?        SN   23:10   0:00 [khugepaged]
+root          42  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-kblockd]
+root          43  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-blkcg_punt_bio]
+root          44  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-kintegrityd]
+root          45  0.0  0.0      0     0 ?        I    23:10   0:00 [kworker/1:1-events]
+root          46  0.0  0.0      0     0 ?        S    23:10   0:00 [irq/9-acpi]
+root          47  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-tpm_dev_wq]
+root          48  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-ata_sff]
+root          49  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-md_bitmap]
+root          50  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-md_llbitmap_io]
+root          51  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-md_llbitmap_unplug]
+root          52  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-edac-poller]
+root          53  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-devfreq_wq]
+root          54  0.0  0.0      0     0 ?        S    23:10   0:00 [watchdogd]
+root          55  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-quota_events_unbound]
+root          56  0.0  0.0      0     0 ?        S    23:10   0:00 [kswapd0]
+root          57  0.0  0.0      0     0 ?        S    23:10   0:00 [ecryptfs-kthread]
+root          58  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-kthrotld]
+root          59  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-acpi_thermal_pm]
+root          60  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-nvme-wq]
+root          61  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-nvme-reset-wq]
+root          62  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-nvme-delete-wq]
+root          63  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-nvme-auth-wq]
+root          65  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-mld]
+root          66  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-ipv6_addrconf]
+root          67  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-kstrp]
+root          69  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/u9:0]
+root          80  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-charger_manager]
+root          81  0.0  0.0      0     0 ?        S    23:10   0:00 [jbd2/nvme0n1p1-8]
+root          82  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-ext4-rsv-conversion]
+root         118  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/1:1H-kblockd]
+root         129  0.0  1.5  50120 13968 ?        S<s  23:10   0:00 /usr/lib/systemd/systemd-journald
+root         143  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-kmpathd]
+root         144  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-kmpath_handlerd]
+root         150  0.0  0.0      0     0 ?        I    23:10   0:00 [kworker/u8:3-flush-259:0]
+root         180  0.0  1.0 279208  9364 ?        SLsl 23:11   0:00 /usr/sbin/multipathd -d -s
+root         186  0.0  0.0      0     0 ?        I<   23:11   0:00 [kworker/0:1H-kblockd]
+systemd+     199  0.0  1.5  22352 14000 ?        Ss   23:11   0:00 /usr/lib/systemd/systemd-resolved
+root         203  0.0  1.4  39040 13664 ?        Ss   23:11   0:00 /usr/lib/systemd/systemd-udevd
+root         204  0.0  0.0      0     0 ?        S    23:11   0:00 [psimon]
+root         251  0.0  0.0      0     0 ?        I<   23:11   0:00 [kworker/R-ena]
+root         253  0.0  0.0      0     0 ?        I<   23:11   0:00 [kworker/R-nfit]
+root         255  0.0  0.0      0     0 ?        S    23:11   0:00 [jbd2/nvme0n1p13-8]
+root         256  0.0  0.0      0     0 ?        I<   23:11   0:00 [kworker/R-ext4-rsv-conversion]
+root         384  0.0  0.0      0     0 ?        I<   23:11   0:00 [kworker/R-cfg80211]
+systemd+     553  0.0  1.3  24648 12352 ?        Ss   23:11   0:00 /usr/lib/systemd/systemd-networkd
+root         643  0.0  0.2   2824  2028 ?        Ss   23:11   0:00 /usr/sbin/acpid
+root         645  0.0  0.2   2908  2012 ?        Ss   23:11   0:00 /bin/sh /usr/lib/systemd/scripts/chronyd-starter.sh -n -F 1
+root         647  0.0  0.3   7488  3040 ?        Ss   23:11   0:00 /usr/sbin/cron -f -P
+message+     648  0.0  0.5   8764  5252 ?        Ss   23:11   0:00 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root         657  0.0  0.3  80796  3608 ?        Ssl  23:11   0:00 /usr/sbin/irqbalance
+root         660  0.0  3.2  46828 29816 ?        Ss   23:11   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+polkitd      662  0.0  1.1 381780 10244 ?        Ssl  23:11   0:00 /usr/lib/polkit-1/polkitd --no-debug --log-level=notice
+root         666  0.0  4.6 2036832 42900 ?       Ssl  23:11   0:00 /usr/lib/snapd/snapd
+root         669  0.0  0.9  18076  9064 ?        Ss   23:11   0:00 /usr/lib/systemd/systemd-logind
+root         673  0.0  1.5 543284 14860 ?        Ssl  23:11   0:00 /usr/libexec/udisks2/udisksd
+root         698  0.0  0.8  10720  7576 ?        Ss   23:11   0:00 sshd: /usr/sbin/sshd -D -o AuthorizedKeysCommand /usr/share/ec2-instance-connect/eic_run_authorized_keys %u %f -o AuthorizedKeysCommandUser ec2-instance-connect [listener] 0 of 10-100 startups
+root         708  0.0  0.2   8280  2676 ttyS0    Ss+  23:11   0:00 /usr/sbin/agetty --noreset --noclear --issue-file=/etc/issue:/etc/issue.d:/run/issue.d:/usr/lib/issue.d --keep-baud 115200,57600,38400,9600 - vt220
+root         718  0.0  0.0      0     0 ?        I    23:11   0:00 [kworker/u8:5-events_power_efficient]
+root         722  0.0  0.2   8236  2556 tty1     Ss+  23:11   0:00 /usr/sbin/agetty --noreset --noclear --issue-file=/etc/issue:/etc/issue.d:/run/issue.d:/usr/lib/issue.d - linux
+_chrony      746  0.0  1.1  23696 10988 ?        S    23:11   0:00 /usr/sbin/chronyd -n -F 1
+_chrony      752  0.0  0.2  11936  2360 ?        S    23:11   0:00 /usr/sbin/chronyd -n -F 1
+root         780  0.0  3.4 126228 32440 ?        Ssl  23:11   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         828  0.0  1.4 391088 13136 ?        Ssl  23:11   0:00 /usr/sbin/ModemManager
+syslog       861  0.0  0.5 220304  5420 ?        Ssl  23:11   0:00 /usr/sbin/rsyslogd -n -iNONE
+root        1024  0.0  0.0      0     0 ?        S    23:11   0:00 [psimon]
+root        1026  0.0  2.2 1832820 21104 ?       Ssl  23:11   0:00 /snap/amazon-ssm-agent/13349/amazon-ssm-agent
+root        1104  0.0  0.0      0     0 ?        I    23:16   0:00 [kworker/1:0-cgroup_free]
+root        1111  0.0  1.3  18132 12204 ?        Ss   23:18   0:00 sshd-session: ubuntu [priv]
+ubuntu      1116  0.0  1.3  21812 12548 ?        Ss   23:18   0:00 /usr/lib/systemd/systemd --user
+root        1118  0.0  0.0      0     0 ?        I    23:18   0:00 [kworker/0:2-rcu_gp]
+ubuntu      1119  0.0  0.4  22756  4156 ?        S    23:18   0:00 (sd-pam)
+ubuntu      1231  0.0  0.8  18432  7904 ?        S    23:18   0:00 sshd-session: ubuntu@pts/0
+ubuntu      1234  0.0  0.5   9280  5484 pts/0    Ss   23:18   0:00 -bash
+root        1332  0.0  0.0      0     0 ?        I    23:25   0:00 [kworker/1:2]
+root        1333  0.0  0.0      0     0 ?        I    23:26   0:00 [kworker/u8:0-events_unbound]
+ubuntu      1378  0.0  0.4   9960  4140 pts/0    R+   23:28   0:00 ps aux
+ubuntu@ip-172-31-26-92:~$
+
+ubuntu@ip-172-31-26-92:~$ mkdir -p ~/ec2-lab/{scripts,logs,data}
+ubuntu@ip-172-31-26-92:~$ cd ~/ec2-lab
+ubuntu@ip-172-31-26-92:~/ec2-lab$ echo "EC2 laboratorio" > data/identificacion.txt
+cat data/identificacion.txt
+EC2 laboratorio
+ubuntu@ip-172-31-26-92:~/ec2-lab$ ps aux | head
+ps aux | grep ssh
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.1  1.7  25240 16028 ?        Ss   23:10   0:02 /sbin/init
+root           2  0.0  0.0      0     0 ?        S    23:10   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    23:10   0:00 [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-rcu_gp]
+root           5  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-sync_wq]
+root           6  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-kvfree_rcu_reclaim]
+root           7  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-slub_flushwq]
+root           8  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/R-netns]
+root          10  0.0  0.0      0     0 ?        I<   23:10   0:00 [kworker/0:0H-kblockd]
+root         698  0.0  0.8  10720  7576 ?        Ss   23:11   0:00 sshd: /usr/sbin/sshd -D -o AuthorizedKeysCommand /usr/share/ec2-instance-connect/eic_run_authorized_keys %u %f -o AuthorizedKeysCommandUser ec2-instance-connect [listener] 0 of 10-100 startups
+root        1111  0.0  1.3  18132 12204 ?        Ss   23:18   0:00 sshd-session: ubuntu [priv]
+ubuntu      1231  0.0  0.8  18432  7904 ?        S    23:18   0:00 sshd-session: ubuntu@pts/0
+ubuntu      1442  0.0  0.2   7144  2368 pts/0    S+   23:29   0:00 grep --color=auto ssh
+ubuntu@ip-172-31-26-92:~/ec2-lab$ sudo journalctl -n 30
+Nov 08 23:18:57 ip-172-31-26-92 systemd[1116]: Reached target default.target - Main User Target.
+Nov 08 23:18:57 ip-172-31-26-92 systemd[1116]: Startup finished in 184ms.
+Nov 08 23:18:57 ip-172-31-26-92 systemd[1]: Started user@1000.service - User Manager for UID 1000.
+Nov 08 23:18:57 ip-172-31-26-92 systemd[1]: Started session-2.scope - Session 2 of User ubuntu.
+Nov 08 23:18:58 ip-172-31-26-92 kernel: audit: type=1400 audit(1794179938.246:190): apparmor="DENIED" operation="open" class="file" profile="who" name="/etc/nsswitch.conf" pid=1154 comm="who" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 08 23:18:58 ip-172-31-26-92 kernel: audit: type=1400 audit(1794179938.246:191): apparmor="DENIED" operation="open" class="file" profile="who" name="/etc/passwd" pid=1154 comm="who" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 08 23:18:58 ip-172-31-26-92 kernel: audit: type=1400 audit(1794179938.246:192): apparmor="DENIED" operation="open" class="file" profile="who" name="/etc/nsswitch.conf" pid=1154 comm="who" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 08 23:18:58 ip-172-31-26-92 kernel: audit: type=1400 audit(1794179938.246:193): apparmor="DENIED" operation="open" class="file" profile="who" name="/etc/passwd" pid=1154 comm="who" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+Nov 08 23:20:01 ip-172-31-26-92 systemd[1]: Starting sysstat-collect.service - system activity accounting tool...
+Nov 08 23:20:01 ip-172-31-26-92 systemd[1]: sysstat-collect.service: Deactivated successfully.
+Nov 08 23:20:01 ip-172-31-26-92 systemd[1]: Finished sysstat-collect.service - system activity accounting tool.
+Nov 08 23:23:59 ip-172-31-26-92 systemd[1116]: launchpadlib-cache-clean.service - Clean up old files in the Launchpadlib cache skipped, unmet condition check ConditionPathExists=/home/ubuntu/.launchpadlib/api.launchpad.net/cache
+Nov 08 23:25:59 ip-172-31-26-92 systemd[1]: Starting systemd-tmpfiles-clean.service - Cleanup of Temporary Directories...
+Nov 08 23:25:59 ip-172-31-26-92 systemd[1]: systemd-tmpfiles-clean.service: Deactivated successfully.
+Nov 08 23:25:59 ip-172-31-26-92 systemd[1]: Finished systemd-tmpfiles-clean.service - Cleanup of Temporary Directories.
+Nov 08 23:30:01 ip-172-31-26-92 systemd[1]: Starting sysstat-collect.service - system activity accounting tool...
+Nov 08 23:30:02 ip-172-31-26-92 systemd[1]: sysstat-collect.service: Deactivated successfully.
+Nov 08 23:30:02 ip-172-31-26-92 systemd[1]: Finished sysstat-collect.service - system activity accounting tool.
+Nov 08 23:31:45 ip-172-31-26-92 sudo[1462]: pam_unix(sudo:session): session opened for user root(uid=0) by ubuntu(uid=1000)
+Nov 08 23:31:45 ip-172-31-26-92 sudo[1462]: ubuntu : TTY=/dev/pts/0 ; PWD=/home/ubuntu/ec2-lab ; USER=root ; COMMAND=/usr/bin/journalctl -n 30
+Nov 08 23:31:45 ip-172-31-26-92 sudo[1462]: pam_unix(sudo:session): session closed for user root
+Nov 08 23:31:48 ip-172-31-26-92 irqbalance[657]: Cannot change IRQ 26 affinity: Permission denied
+Nov 08 23:31:48 ip-172-31-26-92 irqbalance[657]: IRQ 26 affinity is now unmanaged
+Nov 08 23:31:51 ip-172-31-26-92 sudo[1476]: pam_unix(sudo:session): session opened for user root(uid=0) by ubuntu(uid=1000)
+Nov 08 23:31:51 ip-172-31-26-92 sudo[1476]: ubuntu : TTY=/dev/pts/0 ; PWD=/home/ubuntu/ec2-lab ; USER=root ; COMMAND=/usr/bin/systemctl status ssh
+Nov 08 23:32:18 ip-172-31-26-92 irqbalance[657]: Cannot change IRQ 25 affinity: Permission denied
+Nov 08 23:32:18 ip-172-31-26-92 irqbalance[657]: IRQ 25 affinity is now unmanaged
+Nov 08 23:33:21 ip-172-31-26-92 sudo[1476]: pam_unix(sudo:session): session closed for user root
+Nov 08 23:33:43 ip-172-31-26-92 sudo[1502]: pam_unix(sudo:session): session opened for user root(uid=0) by ubuntu(uid=1000)
+Nov 08 23:33:43 ip-172-31-26-92 sudo[1502]: ubuntu : TTY=/dev/pts/0 ; PWD=/home/ubuntu/ec2-lab ; USER=root ; COMMAND=/usr/bin/journalctl -n 30
+ubuntu@ip-172-31-26-92:~/ec2-lab$ sudo systemctl status ssh
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; disabled; preset: enabled)
+    Drop-In: /usr/lib/systemd/system/ssh.service.d
+             └─ec2-instance-connect.conf
+     Active: active (running) since Sun 2026-11-08 23:11:06 UTC; 22min ago
+ Invocation: 6df01479d48844a5b195c84aa282ec5b
+TriggeredBy: ● ssh.socket
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+   Main PID: 698 (sshd)
+      Tasks: 1 (limit: 627)
+     Memory: 6.2M (peak: 7.2M)
+        CPU: 102ms
+     CGroup: /system.slice/ssh.service
+             └─698 "sshd: /usr/sbin/sshd -D -o AuthorizedKeysCommand /usr/share/ec2-instance-connect/eic_run_authorized_keys %u %f -o AuthorizedKeysCommandUser ec2-instance-connect [listener] 0 of 10-100 startups"
+
+Nov 08 23:11:06 ip-172-31-26-92 systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+Nov 08 23:11:06 ip-172-31-26-92 sshd[698]: Server listening on 0.0.0.0 port 22.
+Nov 08 23:11:06 ip-172-31-26-92 systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+Nov 08 23:11:06 ip-172-31-26-92 sshd[698]: Server listening on :: port 22.
+Nov 08 23:15:14 ip-172-31-26-92 sshd-session[1096]: Connection closed by 45.231.225.71 port 34684
+Nov 08 23:18:25 ip-172-31-26-92 sshd-session[1109]: Unable to negotiate with 198.235.24.133 port 65468: no matching key exchange method found. Their offer: diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman>
+Nov 08 23:18:57 ip-172-31-26-92 sshd-session[1111]: Accepted publickey for ubuntu from 181.234.145.196 port 49758 ssh2: RSA SHA256:lh14gaRtrmldx9+GWsaMgDWbjnI+MYOkNyH5C61lzr0
+Nov 08 23:18:57 ip-172-31-26-92 sshd-session[1111]: pam_unix(sshd:session): session opened for user ubuntu(uid=1000) by ubuntu(uid=0)
+ubuntu@ip-172-31-26-92:~/ec2-lab$
+ubuntu@ip-172-31-26-92:~/ec2-lab$ cat << 'EOF' > scripts/system_info.sh
+#!/bin/bash
+
+echo "Hostname: $(hostname)"
+echo "Usuario: $(whoami)"
+echo "Fecha: $(date)"
+echo "Uptime:"
+uptime
+
+echo "Disco:"
+df -h /
+
+echo "Memoria:"
+free -h
+EOF
+
+chmod +x scripts/system_info.sh
+./scripts/system_info.sh
+Hostname: ip-172-31-26-92
+Usuario: ubuntu
+Fecha: Sun Nov  8 23:44:28 UTC 2026
+Uptime:
+ 23:44:28 up 33 min,  1 user,  load average: 0.00, 0.00, 0.00
+Disco:
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       6.7G  2.1G  4.6G  31% /
+Memoria:
+               total        used        free      shared  buff/cache   available
+Mem:           908Mi       304Mi       377Mi       2.7Mi       336Mi       603Mi
+Swap:             0B          0B          0B
+ubuntu@ip-172-31-26-92:~/ec2-lab$
+ubuntu@ip-172-31-26-92:~/ec2-lab$ cat << 'EOF' > scripts/system_info.sh
+#!/bin/bash
+
+# Ruta por defecto es la raíz / si el usuario no pasa ningún argumento
+TARGET="${1:-/}"
+
+echo "=========================================="
+echo "          REPORTE DE SISTEMA EC2          "
+echo "=========================================="
+echo "Hostname: $(hostname)"
+echo "Usuario:  $(whoami)"
+echo "Fecha:    $(date)"
+echo "Uptime:   $(uptime -p)"
+echo ""
+
+echo "--- Uso de Memoria RAM ---"
+free -h
+echo ""
+
+echo "--- Filesystem para la ruta: $TARGET ---"
+if [ -e "$TARGET" ]; then
+    df -h "$TARGET"
+else
+    echo "Advertencia: La ruta '$TARGET' no existe en el sistema."
+    df -h /
+fi
+echo "=========================================="
+EOF
+ubuntu@ip-172-31-26-92:~/ec2-lab$ ./scripts/system_info.sh /var/log
+==========================================
+          REPORTE DE SISTEMA EC2
+==========================================
+Hostname: ip-172-31-26-92
+Usuario:  ubuntu
+Fecha:    Sun Nov  8 23:45:32 UTC 2026
+Uptime:   up 34 minutes
+
+--- Uso de Memoria RAM ---
+               total        used        free      shared  buff/cache   available
+Mem:           908Mi       312Mi       367Mi       2.7Mi       338Mi       595Mi
+Swap:             0B          0B          0B
+
+--- Filesystem para la ruta: /var/log ---
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       6.7G  2.1G  4.6G  31% /
+==========================================
+ubuntu@ip-172-31-26-92:~/ec2-lab$

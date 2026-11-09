@@ -1,0 +1,193 @@
+PS C:\Users\Benja\OneDrive\Desktop\IOT> cd "C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash"
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> docker build -f assets/ubuntu_img/Dockerfile -t ubuntu-bash-lab .      
+[+] Building 1.7s (10/10) FINISHED                                                                                         docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                       0.1s
+ => => transferring dockerfile: 265B                                                                                                       0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                           0.8s
+ => [auth] library/ubuntu:pull token for registry-1.docker.io                                                                              0.0s
+ => [internal] load .dockerignore                                                                                                          0.1s
+ => => transferring context: 2B                                                                                                            0.0s
+ => [1/4] FROM docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b                     0.1s
+ => => resolve docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b                     0.1s
+ => [internal] load build context                                                                                                          0.1s
+ => => transferring context: 38.67kB                                                                                                       0.0s
+ => CACHED [2/4] RUN apt-get update && apt-get install -y     bash     coreutils     grep     gawk     procps     nano     && rm -rf /var  0.0s
+ => CACHED [3/4] WORKDIR /app                                                                                                              0.0s
+ => [4/4] COPY . /app                                                                                                                      0.1s
+ => exporting to image                                                                                                                     0.4s
+ => => exporting layers                                                                                                                    0.2s
+ => => exporting manifest sha256:ea89037af44e4f56f848b38628e39613289e9efd68026230bf76079468121c1d                                          0.0s
+ => => exporting config sha256:a379849ad1d23e9e898e485e8352ef285403b5cd9bbc1cb88131f3d1871fe57f                                            0.0s
+ => => exporting attestation manifest sha256:448565151e553aab2222d97f12482bbb6f32b7882f9df27a6d9d373e9b095430                              0.0s
+ => => exporting manifest list sha256:0d5794e43f8dd21dd433dae1713da92fa7f9bdf97011d55770f9201afdb2a464                                     0.0s
+ => => naming to docker.io/library/ubuntu-bash-lab:latest                                                                                  0.0s
+ => => unpacking to docker.io/library/ubuntu-bash-lab:latest                                                                               0.0s
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> docker rm -f ubuntu-lab 2>$null
+PS C:\Users\Benja\OneDrive\Desktop\IOT\cloud-computing\clases\02_bash> docker run --name ubuntu-lab -it --mount "type=bind,source=$((Get-Location).Path),target=/app" ubuntu-bash-lab
+root@1268258d3dca:/app# cd /app/assets
+root@1268258d3dca:/app/assets# pwd
+/app/assets
+root@1268258d3dca:/app/assets# ls -la
+total 0
+drwxrwxrwx 1 root root 4096 Aug 30 17:12 .
+drwxrwxrwx 1 root root 4096 Aug 30 22:59 ..
+-rwxrwxrwx 1 root root  460 Aug 30 17:12 access.log
+drwxrwxrwx 1 root root 4096 Aug 30 17:12 nginx_service
+drwxrwxrwx 1 root root 4096 Aug 30 17:12 ubuntu_img
+root@1268258d3dca:/app/assets# cat > access.log <<'LOGEND'
+2026-08-24 08:15:20 INFO user=ana action=login ip=192.168.1.10
+2026-08-24 08:16:02 ERROR user=juan action=login ip=192.168.1.15
+2026-08-24 08:16:18 INFO user=ana action=download ip=192.168.1.10
+2026-08-24 08:17:33 WARN user=carlos action=login ip=192.168.1.22
+2026-08-24 08:18:04 ERROR user=juan action=upload ip=192.168.1.15
+2026-08-24 08:19:27 INFO user=ana action=logout ip=192.168.1.10
+2026-08-24 08:20:11 ERROR user=juan action=login ip=192.168.1.15
+LOGEND
+root@1268258d3dca:/app/assets# cat access.log
+2026-08-24 08:15:20 INFO user=ana action=login ip=192.168.1.10
+2026-08-24 08:16:02 ERROR user=juan action=login ip=192.168.1.15
+2026-08-24 08:16:18 INFO user=ana action=download ip=192.168.1.10
+2026-08-24 08:17:33 WARN user=carlos action=login ip=192.168.1.22
+2026-08-24 08:18:04 ERROR user=juan action=upload ip=192.168.1.15
+2026-08-24 08:19:27 INFO user=ana action=logout ip=192.168.1.10
+2026-08-24 08:20:11 ERROR user=juan action=login ip=192.168.1.15
+root@1268258d3dca:/app/assets# 
+root@1268258d3dca:/app/assets# grep 'ERROR' access.log
+2026-08-24 08:16:02 ERROR user=juan action=login ip=192.168.1.15
+2026-08-24 08:18:04 ERROR user=juan action=upload ip=192.168.1.15
+2026-08-24 08:20:11 ERROR user=juan action=login ip=192.168.1.15
+root@1268258d3dca:/app/assets# grep 'ERROR' access.log | wc -l
+3
+root@1268258d3dca:/app/assets# grep 'ERROR' access.log | awk '{for(i=1;i<=NF;i++) if($i ~ /^user=/) print $i}'
+user=juan
+user=juan
+user=juan
+root@1268258d3dca:/app/assets# grep 'ERROR' access.log |
+awk '{for(i=1;i<=NF;i++) if($i ~ /^user=/) print $i}' |
+sort |
+uniq -c
+      3 user=juan
+root@1268258d3dca:/app/assets# grep 'ERROR' access.log |
+awk '{for(i=1;i<=NF;i++) if($i ~ /^ip=/) print $i}' |
+sort |
+uniq -c
+      3 ip=192.168.1.15
+root@1268258d3dca:/app/assets#
+
+root@1268258d3dca:/app/assets# echo "1. Cantidad total de registros: $(wc -l < access.log)" > reporte.txt
+
+echo "2. Cantidad de errores: $(grep -c 'ERROR' access.log)" >> reporte.txt
+
+echo "3. Cantidad de advertencias: $(grep -c 'WARN' access.log)" >> reporte.txt
+
+echo "4. Usuario con mas errores: $(grep 'ERROR' access.log | awk '{for(i=1;i<=NF;i++) if($i ~ /^user=/) print $i}' | sort | uniq -c | sort -nr | head -n 1 | awk '{print $2}')" >> reporte.txt
+
+echo "5. IP con mas errores: $(grep 'ERROR' access.log | awk '{for(i=1;i<=NF;i++) if($i ~ /^ip=/) print $i}' | sort | uniq -c | sort -nr | head -n 1 | awk '{print $2}')" >> reporte.txt
+root@1268258d3dca:/app/assets# cat reporte.txt
+1. Cantidad total de registros: 7
+2. Cantidad de errores: 3
+3. Cantidad de advertencias: 1
+4. Usuario con mas errores: user=juan
+5. IP con mas errores: ip=192.168.1.15
+root@1268258d3dca:/app/assets# 
+root@1268258d3dca:/app/assets# grep 'ERROR' access.log |
+awk '{for(i=1;i<=NF;i++) if($i ~ /^user=/) print $i}' |
+sort |
+uniq -c |
+awk '$1 >= 2 {print "Usuario sospechoso:", $2}'
+Usuario sospechoso: user=juan
+root@1268258d3dca:/app/assets#
+root@1268258d3dca:/app/assets# cat > saludo.sh <<'SCRIPT'
+#!/bin/bash
+
+echo "Hola desde mi primer script Bash"
+echo "Usuario: $(whoami)"
+echo "Directorio actual: $(pwd)"
+SCRIPT
+root@1268258d3dca:/app/assets# chmod +x saludo.sh
+root@1268258d3dca:/app/assets# ./saludo.sh
+Hola desde mi primer script Bash
+Usuario: root
+Directorio actual: /app/assets
+root@1268258d3dca:/app/assets# bash saludo.sh
+Hola desde mi primer script Bash
+Usuario: root
+Directorio actual: /app/assets
+root@1268258d3dca:/app/assets# echo $?
+0
+root@1268258d3dca:/app/assets#
+root@1268258d3dca:/app/assets# cat > monitor.sh <<'SCRIPT'
+#!/bin/bash
+
+echo "===== MONITOR DEL CONTENEDOR ====="
+echo "Hostname: $(hostname)"
+echo "Usuario: $(whoami)"
+echo "Fecha: $(date)"
+echo "Directorio: $(pwd)"
+
+echo "===== DISCO ====="
+df -h
+
+echo "===== PROCESOS ====="
+echo "Cantidad aproximada de procesos: $(ps aux | tail -n +2 | wc -l)"
+
+echo "===== FIN DEL REPORTE ====="
+echo "Diagnostico terminado correctamente."
+SCRIPT
+root@1268258d3dca:/app/assets# chmod +x monitor.sh
+./monitor.sh
+===== MONITOR DEL CONTENEDOR =====
+Hostname: 1268258d3dca
+Usuario: root
+Fecha: Sat Sep  5 17:33:53 UTC 2026
+Directorio: /app/assets
+===== DISCO =====
+Filesystem      Size  Used Avail Use% Mounted on
+overlay        1007G  1.7G  954G   1% /
+tmpfs            64M     0   64M   0% /dev
+shm              64M     0   64M   0% /dev/shm
+C:\             931G  569G  363G  62% /app
+/dev/sde       1007G  1.7G  954G   1% /etc/hosts
+tmpfs           4.0K     0  4.0K   0% /proc/acpi
+===== PROCESOS =====
+Cantidad aproximada de procesos: 6
+===== FIN DEL REPORTE =====
+Diagnostico terminado correctamente.
+root@1268258d3dca:/app/assets# 
+root@1268258d3dca:/app/assets# cat > analiza.sh <<'SCRIPT'
+#!/bin/bash
+
+if [ "$#" -eq 0 ]; then
+    echo "Uso: $0 archivo..."
+    exit 1
+fi
+
+for archivo in "$@"; do
+    if [ ! -f "$archivo" ]; then
+        echo "Error: el archivo '$archivo' no existe."
+        continue
+    fi
+
+    echo "===== ANALISIS DE: $archivo ====="
+    echo "Lineas: $(wc -l < "$archivo")"
+    echo "Palabras: $(wc -w < "$archivo")"
+    echo "Caracteres: $(wc -m < "$archivo")"
+    echo "Lineas con ERROR: $(grep -c 'ERROR' "$archivo")"
+    echo "Lineas con WARN: $(grep -c 'WARN' "$archivo")"
+    echo
+done
+SCRIPT
+root@1268258d3dca:/app/assets# chmod +x analiza.sh
+root@1268258d3dca:/app/assets# ./analiza.sh
+Uso: ./analiza.sh archivo...
+root@1268258d3dca:/app/assets# ./analiza.sh no_existe.log
+Error: el archivo 'no_existe.log' no existe.
+root@1268258d3dca:/app/assets# ./analiza.sh access.log
+===== ANALISIS DE: access.log =====
+Lineas: 7
+Palabras: 42
+Caracteres: 455
+Lineas con ERROR: 3
+Lineas con WARN: 1
+
+root@1268258d3dca:/app/assets# 

@@ -1,0 +1,4 @@
+{"level":"info","service":"api","status":200,"message":"OK"}
+{"level":"error","service":"api","status":500,"message":"Database error"}
+{"level":"error","service":"auth","status":500,"message":"Token invalid"}
+{"level":"info","service":"auth","status":200,"message":"Login success"}

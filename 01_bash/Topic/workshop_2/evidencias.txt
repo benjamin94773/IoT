@@ -1,0 +1,108 @@
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ cat > estudiantes.txt
+Ana
+Pedro
+Juan
+Ana
+Carlos
+Pedro
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ grep Ana estudiantes.txt
+Ana
+Ana
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ grep -i ana estudiantes.txt
+Ana
+Ana
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ wc estudiantes.txt
+ 6  6 32 estudiantes.txt
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ wc -l estudiantes.txt
+6 estudiantes.txt
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ sort estudiantes.txt
+Ana
+Ana
+Carlos
+Juan
+Pedro
+Pedro
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ sort estudiantes.txt | uniq
+Ana
+Carlos
+Juan
+Pedro
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ head estudiantes.txt
+Ana
+Pedro
+Juan
+Ana
+Carlos
+Pedro
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ tail estudiantes.txt
+Ana
+Pedro
+Juan
+Ana
+Carlos
+Pedro
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ find . -name "*.txt"
+./estudiantes.txt
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ find . -type d
+.
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ ls > archivos.txt
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ pwd >> archivos.txt
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ ls carpeta_inexistente 2> errores.txt
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ cat estudiantes.txt | sort | uniq | wc -l
+4
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ touch hola.sh
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ chmod +x hola.sh
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ chmod +x hola.sh
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ ls -l
+total 7
+-rw-r--r-- 1 Benja 197609   99 Nov  8 16:36 archivos.txt
+-rw-r--r-- 1 Benja 197609   67 Nov  8 16:36 errores.txt
+-rw-r--r-- 1 Benja 197609   32 Nov  8 16:34 estudiantes.txt
+-rw-r--r-- 1 Benja 197609    0 Nov  8 16:37 evidencias.txt
+-rw-r--r-- 1 Benja 197609    0 Nov  8 16:36 hola.sh
+-rw-r--r-- 1 Benja 197609 2569 Aug 30 12:12 workshop_2.md
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ file hola.sh
+hola.sh: empty
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_2
+$ find . -name "*.txt" | sort > reporte.txt
+

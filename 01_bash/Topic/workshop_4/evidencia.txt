@@ -1,0 +1,118 @@
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_4
+$ saludar() {
+    echo "Hola desde Bash"
+}
+
+saludar
+Hola desde Bash
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_4
+$ presentarse() {
+    echo "Nombre: Benjamín Ortiz Morales"    
+    echo "Programa académico: Ingeniería de Sistemas"
+    echo "----------------------------------------"
+}                                                  
+ 
+presentarse
+presentarse                        
+presentarse
+Nombre: Benjamín Ortiz Morales
+Programa académico: Ingeniería de Sistemas
+----------------------------------------
+Nombre: Benjamín Ortiz Morales
+Programa académico: Ingeniería de Sistemas
+----------------------------------------
+Nombre: Benjamín Ortiz Morales
+Programa académico: Ingeniería de Sistemas
+----------------------------------------
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_4
+$ ls | wc -l
+3
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_4
+$ cat archivo.txt | grep error
+error
+
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ htop
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.1  0.0  24296 15356 ?        Ss   17:05   0:00 /sbin/init
+root           2  0.0  0.0   3180  2204 hvc0     Sl+  17:05   0:00 /init
+root           6  0.0  0.0   3180  2048 hvc0     Sl+  17:05   0:00 plan9 --control-socket 7 --log-level 4 --server-fd 8 --pipe-fd 10 --log-truncate
+root          43  0.0  0.1  50396 16768 ?        S<s  17:05   0:00 /usr/lib/systemd/systemd-journald
+systemd+      63  0.0  0.0  22540 14604 ?        Ss   17:05   0:00 /usr/lib/systemd/systemd-resolved
+root          85  0.0  0.0  35248 12428 ?        Ss   17:05   0:00 /usr/lib/systemd/systemd-udevd
+root         110  0.0  0.0   2888  2016 ?        Ss   17:05   0:00 /bin/sh /usr/lib/systemd/scripts/chronyd-starter.sh -n -F 1
+root         111  0.0  0.0   4472  3120 ?        Ss   17:05   0:00 /usr/sbin/cron -f -P
+message+     112  0.0  0.0   8792  5436 ?        Ss   17:05   0:00 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root         131  0.0  0.1  44092 29720 ?        Ss   17:05   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root         152  0.0  0.0  18432  9396 ?        Ss   17:05   0:00 /usr/lib/systemd/systemd-logind
+root         160  0.0  0.0 1792300 15416 ?       Ssl  17:05   0:00 /usr/libexec/wsl-pro-service
+syslog       173  0.0  0.0 220548  5968 ?        Ssl  17:05   0:00 /usr/sbin/rsyslogd -n -iNONE
+root         185  0.0  0.0   5492  2832 tty1     Ss+  17:05   0:00 /usr/sbin/agetty --noreset --noclear --issue-file=/etc/issue:/etc/issue.d:/run/issue.d:/usr/lib/issue.d - linux
+_chrony      204  0.0  0.0  20420  6412 ?        S    17:05   0:00 /usr/sbin/chronyd -n -F 1 -x
+_chrony      222  0.0  0.0  12092  2492 ?        S    17:05   0:00 /usr/sbin/chronyd -n -F 1 -x
+root         239  0.0  0.2 123456 32556 ?        Ssl  17:05   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         305  0.0  0.0   3196  1112 ?        Ss   17:05   0:00 /init
+root         306  0.0  0.0   3196  1248 ?        S    17:05   0:00 /init
+benja        307  0.0  0.0   6268  5720 pts/0    Ss   17:05   0:00 -bash
+root         308  0.0  0.0   8648  5600 ?        Ss   17:05   0:00 login -- benja
+benja        350  0.0  0.0  22332 13588 ?        Ss   17:05   0:00 /usr/lib/systemd/systemd --user
+benja        352  0.0  0.0  22912  4092 ?        S    17:05   0:00 (sd-pam)
+benja        376  0.0  0.0   6136  5452 pts/1    Ss+  17:05   0:00 -bash
+root         626  0.0  0.1 340140 22380 ?        Ssl  17:05   0:00 /usr/libexec/packagekitd
+polkitd      631  0.0  0.0 306444  8384 ?        Ssl  17:05   0:00 /usr/lib/polkit-1/polkitd --no-debug --log-level=notice
+benja        748  0.0  0.0   7160  4396 pts/0    R+   17:10   0:00 ps aux
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ ps aux | grep "[u]nattended-upgrade-shutdown"
+root         239  0.0  0.2 123456 32556 ?        Ssl  17:05   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ ps aux | grep "[u]nattended-upgrade-shutdown" | awk '{print "Usuario: " $1 " | PID: " $2 " | CPU: " $3 "% | MEM: " $4 "%"}'
+Usuario: root | PID: 239 | CPU: 0.0% | MEM: 0.2%
+
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ sudo kill 239
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ ps aux | grep "[u]nattended-upgrade-shutdown"
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ ps -p 239
+    PID TTY          TIME CMD
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ 
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ nano logs.json
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ grep error logs.json
+{"level":"error","service":"api","status":500,"message":"Database error"}
+{"level":"error","service":"auth","status":500,"message":"Token invalid"}
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ jq '{service,status,message}' logs.json
+{
+  "service": "api",
+  "status": 200,
+  "message": "OK"
+}
+{
+  "service": "api",
+  "status": 500,
+  "message": "Database error"
+}
+{
+  "service": "auth",
+  "status": 500,
+  "message": "Token invalid"
+}
+{
+  "service": "auth",
+  "status": 200,
+  "message": "Login success"
+}
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ jq 'select(.status==500)' logs.json
+{
+  "level": "error",
+  "service": "api",
+  "status": 500,
+  "message": "Database error"
+}
+{
+  "level": "error",
+  "service": "auth",
+  "status": 500,
+  "message": "Token invalid"
+}
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ jq 'select(.status==500)' logs.json | wc -l
+12
+benja@Benja:/mnt/c/Users/Benja/OneDrive/Desktop/IOT/01/Topic/workshop_4$ jq -r 'select(.status >= 400) | .service' logs.json | sort | uniq -c | sort -nr | head -n 1
+      1 auth

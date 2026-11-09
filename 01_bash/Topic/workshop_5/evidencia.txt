@@ -1,0 +1,264 @@
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker --version
+Docker version 29.7.2, build a7dcaa6
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker images
+                                                                                                                                                                                    i Info →   U  In Use
+IMAGE                                                                                                     ID             DISK USAGE   CONTENT SIZE   EXTRA
+312175624942.dkr.ecr.us-east-1.amazonaws.com/equipment-api:1.0                                            5ea22d608fd5        174MB         47.6MB        
+312175624942.dkr.ecr.us-east-1.amazonaws.com/equipment-api:2.0                                            66cf06eb2ca5        174MB         47.6MB        
+cgr.dev/chainguard/minio-client@sha256:c62e8699a4bc6e7755d366a1cab6c982fa965ef327bba87000b70318ec7125b7   c62e8699a4bc        143MB         41.3MB        
+cgr.dev/chainguard/minio@sha256:268d68a2a3b6fc65f905a61f84d7eab6345ce6bff14f551e2b028ec31e6a1341          268d68a2a3b6        236MB           64MB        
+ejemplo-cmd:latest                                                                                        6db59c248013        157MB         41.6MB        
+ejemplo-combinado:latest                                                                                  ef1fc1eec6c4        157MB         41.6MB        
+ejemplo-entrypoint:latest                                                                                 113db3ad21fb        157MB         41.6MB        
+equipment-api:1.0                                                                                         5ea22d608fd5        174MB         47.6MB        
+equipment-api:2.0                                                                                         66cf06eb2ca5        174MB         47.6MB        
+mongo:8                                                                                                   5211c51171f5       1.15GB          303MB    U   
+nginx:alpine                                                                                              72ba65eb42c1        103MB         29.7MB        
+postgres:16                                                                                               f1c3376c26f2        642MB          166MB        
+postgres:16-alpine                                                                                        0cefaabd882e        420MB          117MB        
+proyecto-ubuntu:latest                                                                                    84513b9bcaff        161MB         42.8MB    U   
+proyecto-web:latest                                                                                       1a487b1676aa        102MB         28.8MB    U   
+trinodb/trino:484                                                                                         2704eb53935a       2.41GB         1.04GB        
+ubuntu-bash-lab:latest                                                                                    9b7bf3530c7d        162MB           43MB    U   
+ubuntu-bash:latest                                                                                        140246aa50d2        162MB           43MB    U   
+workshop1-api-test:latest                                                                                 58ccac3ebaa0        208MB         51.2MB        
+workshop1-api1:latest                                                                                     6554ba6470d3        208MB         51.2MB        
+workshop1-api2:latest                                                                                     dd2ca04c53e9        208MB         51.2MB        
+workshop1-api3:latest                                                                                     5fba224cb2e8        208MB         51.2MB        
+workshop2-orders1:latest                                                                                  6691f82fcf64        208MB         51.2MB        
+workshop2-orders2:latest                                                                                  6be624d9ef71        208MB         51.2MB        
+workshop2-products:latest                                                                                 06664ea9c075        208MB         51.2MB        
+workshop2-users1:latest                                                                                   fbf922927822        208MB         51.2MB        
+workshop2-users2:latest                                                                                   98a783075d91        208MB         51.2MB        
+workshop2-users:latest                                                                                    ff860b78c791        208MB         51.2MB        
+workshop3-api1:latest                                                                                     7d677f195f09        237MB         57.2MB        
+workshop3-api2:latest                                                                                     5e1082285747        237MB         57.2MB        
+workshop3-api3:latest                                                                                     66dd00dff9f9        237MB         57.2MB        
+workshop3-ubuntu:latest                                                                                   47f52a0cf16a        161MB         42.8MB        
+workshop3-web:latest                                                                                      db7197c76f94        102MB         28.8MB        
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker system df
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          32        5         5.588GB   3.707GB (66%)
+Containers      4         0         122.9kB   122.9kB (100%)
+Local Volumes   7         3         355.8MB   145.1MB (40%)
+Build Cache     96        0         724MB     727.4kB
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker pull ubuntu
+Using default tag: latest
+latest: Pulling from library/ubuntu
+f3f25b84a7d7: Pull complete 
+edafa32f5d9e: Pull complete 
+21594acc2d8b: Download complete 
+Digest: sha256:6a06111c3b0a8600feadb270aec771dc239bf407b25625f93f44ab00e11f4d3c
+Status: Downloaded newer image for ubuntu:latest
+docker.io/library/ubuntu:latest
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+6d2e43921e9e: Pull complete 
+7cb4701ce7cd: Pull complete 
+1962e1ff75b4: Pull complete 
+1724c05f72c6: Pull complete 
+bbb080c71d50: Pull complete 
+37fb86c2a767: Pull complete 
+512ac5e7ce8e: Pull complete 
+d2c7e31f04a3: Download complete 
+4582dace95e2: Download complete 
+Digest: sha256:165ddde8751e75a1c907d24ef10d9f6deb08b57e0fe56caf67512486aff76d82
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker images
+                                                                                                                                                                                    i Info →   U  In Use
+IMAGE                                                                                                     ID             DISK USAGE   CONTENT SIZE   EXTRA
+nginx:latest                                                                                              165ddde8751e        243MB         66.8MB        
+ubuntu:latest                                                                                             6a06111c3b0a        163MB         45.9MB        
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker run -it ubuntu bash
+root@92e4c51145f8:/# pwd
+ls
+whoami
+exit
+/
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root
+exit
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker run -d -p 8080:80 nginx
+9b9e811296ce222be6dd8334a179b0d0acd7db0b92d4be1e7a3106f35a6080c7
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                     NAMES
+9b9e811296ce   nginx     "/docker-entrypoint.…"   3 seconds ago   Up 3 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   busy_ellis
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker network ls
+NETWORK ID     NAME                DRIVER    SCOPE
+6a58cd8f536f   bridge              bridge    local
+c6c439808f6d   host                host      local
+9998ff2656b4   none                null      local
+8ec8f5141bf0   proyecto_default    bridge    local
+5b88ff9d9b95   workshop5_default   bridge    local
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker volume ls
+DRIVER    VOLUME NAME
+local     7ca93426554a1ba4eaf165fa77d4fd93331d64d21373f84ca05ff25b822d02a9
+local     11c6d2b763dc4955fb45f8ca21ebc7a1fdccbb9dd479a0d8e96ea4052dcefed3
+local     demo-seguridad-lake_minio-data
+local     proyecto_logs_data
+local     workshop3_postgres_data
+local     workshop4_postgres_data
+local     workshop5_mongo_data
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker system df
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          34        7         5.994GB   3.707GB (61%)
+Containers      6         0         213kB     213kB (100%)
+Local Volumes   7         3         355.8MB   145.1MB (40%)
+Build Cache     96        0         724MB     727.4kB
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker system prune
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all dangling images
+  - unused build cache
+
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+9b9e811296ce222be6dd8334a179b0d0acd7db0b92d4be1e7a3106f35a6080c7
+92e4c51145f87d502a0ce84cdd2cfc3186e81aa5c3a82af6c8ddfde35dcfcdef
+bef3b9d267774698b51ec09cdd9660ee20d9a452b41895f7a85c7b654d70532d
+d60c4c5988350263ed78cd28d53e2350aae3ce1e445e9dd2874a99b517cf4fe2
+9555ca9edb8f8d3e7e041bec169505d96bfbe06ee63888fbb4a671a8d428e62d
+3e22394c288430c37084b2727b0ac33d66a752ab8050bd303e1c0856c3b10982
+
+Deleted Networks:
+proyecto_default
+workshop5_default
+
+Deleted Images:
+untagged: sha256:b70db8548aaaad939e6382f5badb19a401582c99d5e0d2ff67b9ab41e1c10d71
+deleted: sha256:b70db8548aaaad939e6382f5badb19a401582c99d5e0d2ff67b9ab41e1c10d71
+deleted: sha256:e0872a6357046026be7f601c550761c307e02f7d74b6a44de7952f7a441377a8
+deleted: sha256:dd2fb0f27c139232012744d6e64a563a7423ebd220718bedb5ad27cc0deac1a5
+
+Deleted build cache objects:
+up8hqxou5o0e99jw1zydor7hr
+wa75lljt7gqkl76algxiic5pd
+w2caq4cvn4w0zqcpunb74dhoa
+jx8o2qgptvt4nmfrveeojfepf
+tgcfabiemwoidepe4hqro846q
+v56d3tgb4i0luwtdgp4couk7s
+grcidfq1gia79zyfejicvd8zf
+5bdkm96hdlakujuba5yukt8t0
+zitit24sd4yngfzdm4yt12724
+z5grk1m484y7r0qmhby52am98
+dza6i76gcbil833vbajxxki7d
+jvv32srjz3y5b7wuywdj49bp7
+ttks8pc98t3nbe66d30sdj54x
+rrtewsxvqrafg34rg3ugec54t
+if6nv9gee3y4yg4y9kkz6fz3l
+knes4f55krx5axksob46h6r62
+pb3q9kg23qym7nug231xu14p3
+oz4gpv3lfr040r3dqihex02ee
+fgd8cznoddvwnacutjkgj2vqh
+ycw5d9ybl0xdmtf0o45ftqub4
+sr7eqeuwz9tqvg231sn22ncju
+wiijcd9ylpgeen1qeww404fsg
+cusncfgtuvhgku0d9qe82uzs5
+vxrgmovre4avv5b13q9aeryw1
+0bqgw23o1gyj4rspy0bsb7t09
+akmcsn5go3sp1kh6ni457imiq
+o0tx8lu8o2lk0lmmw842pi1zk
+wsmswcdllqgziyr3s33g6napc
+qll249kskdxs2r6z3b14dswzj
+dt8ny5442b7d0r4cw9c6wkrzc
+o73xhm5ttcau6oq387g7oy1ln
+9cfphwgfey3km2kzbc0nj9qwi
+rz1w18dq0o1z7jya8krr80a1h
+kf4ve3bfrm04m3vf3gpj2rs8s
+qaav8l1rj9712bzjc1tyl0fd5
+tsx3m1vah8nylij5z30gdvr7w
+q4s900z83qu24x78tf8sbs21u
+mf5y1exue9y8bs1ikdonuuzuo
+u2197vzun2n1fdggpnevc7jrl
+69jdoct1owics03lsyd84qb8e
+l7znepdy9ta1pev6r946te04z
+hv0k9f8vqhkpdt0o6j3dvls6u
+hphw6aafq1v66qsjz9q0z2vzt
+uk41v3s3s0wka1pxqw805ep0t
+hw9tfozlnfwl5r1r4cgaiz8v1
+zfisul1jifoh3m3mfjk8nh93w
+
+Total reclaimed space: 976.7kB
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker run -d -it --name servidor-ubuntu ubuntu
+90695d90e921e32ab285c9757d36aeea8ecbcdc617d77ef134ee1e67ea1c46d5
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker run -d --name servidor-nginx -p 8080:80 nginx
+52a3b72db51271f7ef730e7b8a3a3de1aeb121c0fcbb5320def3a6da68055900
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker logs servidor-nginx
+/docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+/docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+/docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+/docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+/docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+/docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+/docker-entrypoint.sh: Configuration complete; ready for start up
+2026/11/08 22:37:22 [notice] 1#1: using the "epoll" event method
+2026/11/08 22:37:22 [notice] 1#1: nginx/1.31.8
+2026/11/08 22:37:22 [notice] 1#1: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/11/08 22:37:22 [notice] 1#1: OS: Linux 6.18.33.2-microsoft-standard-WSL2
+2026/11/08 22:37:22 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2026/11/08 22:37:22 [notice] 1#1: start worker processes
+2026/11/08 22:37:22 [notice] 1#1: start worker process 29
+2026/11/08 22:37:22 [notice] 1#1: start worker process 30
+2026/11/08 22:37:22 [notice] 1#1: start worker process 31
+2026/11/08 22:37:22 [notice] 1#1: start worker process 32
+2026/11/08 22:37:22 [notice] 1#1: start worker process 33
+2026/11/08 22:37:22 [notice] 1#1: start worker process 34
+2026/11/08 22:37:22 [notice] 1#1: start worker process 35
+2026/11/08 22:37:22 [notice] 1#1: start worker process 36
+2026/11/08 22:37:22 [notice] 1#1: start worker process 37
+2026/11/08 22:37:22 [notice] 1#1: start worker process 38
+2026/11/08 22:37:22 [notice] 1#1: start worker process 39
+2026/11/08 22:37:22 [notice] 1#1: start worker process 40
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker stop servidor-ubuntu servidor-nginx
+servidor-ubuntu
+servidor-nginx
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker rm servidor-ubuntu servidor-nginx
+servidor-ubuntu
+servidor-nginx
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_5
+$ docker rmi ubuntu nginx
+Untagged: ubuntu:latest
+Deleted: sha256:6a06111c3b0a8600feadb270aec771dc239bf407b25625f93f44ab00e11f4d3c
+Untagged: nginx:latest
+Deleted: sha256:165ddde8751e75a1c907d24ef10d9f6deb08b57e0fe56caf67512486aff76d82

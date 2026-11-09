@@ -1,0 +1,209 @@
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/cloud-computing (main)
+$ pwd
+/c/Users/Benja/OneDrive/Desktop/IOT/cloud-computing
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/cloud-computing (main)
+$ ls
+clases/  information/  project/
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/cloud-computing (main)
+$ ls -l
+total 4
+drwxr-xr-x 1 Benja 197609 0 Oct 18 12:12 clases/
+drwxr-xr-x 1 Benja 197609 0 Sep 13 12:13 information/
+drwxr-xr-x 1 Benja 197609 0 Oct 18 12:12 project/
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/cloud-computing (main)
+$ ls -la
+total 16
+drwxr-xr-x 1 Benja 197609 0 Oct 18 12:12 ./
+drwxr-xr-x 1 Benja 197609 0 Nov  8 16:03 ../
+drwxr-xr-x 1 Benja 197609 0 Nov  8 16:06 .git/
+-rw-r--r-- 1 Benja 197609 0 Aug 30 12:12 .gitignore
+drwxr-xr-x 1 Benja 197609 0 Oct 18 12:12 clases/
+drwxr-xr-x 1 Benja 197609 0 Sep 13 12:13 information/
+drwxr-xr-x 1 Benja 197609 0 Oct 18 12:12 project/
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/cloud-computing (main)
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1
+$ mkdir bash_basico
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1
+$ cd bash_basico
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ mkdir documentos scripts datos
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ ls
+datos/  documentos/  scripts/
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ touch documentos/notas.txt
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ touch scripts/script1.sh
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ touch datos/datos.csv
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ ls -R
+.:
+datos/  documentos/  scripts/
+
+./datos:
+datos.csv
+
+./documentos:
+notas.txt
+
+./scripts:
+script1.sh
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ cp documentos/notas.txt datos/
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ mv datos/notas.txt documentos/notas_copia.txt
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ mv documentos/notas.txt documentos/apuntes.txt
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ echo "Hola Bash" > documentos/apuntes.txt
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ cat documentos/apuntes.txt
+Hola Bash
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ less documentos/apuntes.txt
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ rm documentos/apuntes.txt
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ rm -r datos
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/bash_basico
+$ history
+    1  git clone https://github.com/SebastianReyesLeyton/cloud-computing
+    2  git clone https://github.com/cesarpalacios/ia-for-devs-2026-2.git
+    3  git pull
+    4  .git
+    5  clear
+    6  git clone https://github.com/SebastianReyesLeyton/cloud-computing.git
+    7  git stash
+    8  cd cloud-computing/
+    9  git pull
+   10  git status
+   11  git pull
+   12  clear
+   13  pwd
+   14  ls
+   15  cd cld
+   16  cd cloud-computing/
+   17  ls
+   18  clear
+   19  pwd
+   20  ls
+   21  ls -l
+   22  ls -la
+   23  ls
+   24  cd ..
+   25  cd 01
+   26  ls
+   27  cd Topic/
+   28  cd workshop_
+   29  cd workshop_1
+   30  ls
+   31  clear
+   32  mkdir bash_basico
+   33  cd bash_basico
+   34  mkdir documentos scripts datos
+   35  ls
+   36  touch documentos/notas.txt
+   37  touch scripts/script1.sh
+   38  touch datos/datos.csv
+   39  ls -R
+   40  clear
+   41  cp documentos/notas.txt datos/
+   42  mv datos/notas.txt documentos/notas_copia.txt
+   43  mv documentos/notas.txt documentos/apuntes.txt
+   44  clear
+   45  echo "Hola Bash" > documentos/apuntes.txt
+   46  cat documentos/apuntes.txt
+   47  less documentos/apuntes.txt
+   48  less documentos/apuntes.txt
+   49  clear
+   50  rm documentos/apuntes.txt
+   51  rm -r datos
+   52  man ls
+   53  history
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1
+$ mkdir proyecto
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1
+$ cd proyecto/
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/proyecto
+$ mkdir codigo datos documentos
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/proyecto
+$ ls
+codigo/  datos/  documentos/
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/proyecto
+$ touch codigo/main.py
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/proyecto
+$ touch codigo/util.py
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/proyecto
+$ touch datos/clientes.csv
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/proyecto
+$ touch datos/ventas.csv
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/proyecto
+$ touch documentos/informe.md
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/proyecto
+$ ls -R
+.:
+codigo/  datos/  documentos/
+
+./codigo:
+main.py  util.py
+
+./datos:
+clientes.csv  ventas.csv
+
+./documentos:
+informe.md
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/proyecto
+$ cp datos/ventas.csv documentos/
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/proyecto
+$ mv datos/ventas.csv datos/ventas_backup.csv
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/proyecto
+$ mv documentos/ventas.csv documentos/ventas_backup.csv
+
+Benja@Benja MINGW64 ~/OneDrive/Desktop/IOT/01/Topic/workshop_1/proyecto
+$ ls -R
+.:
+codigo/  datos/  documentos/
+
+./codigo:
+main.py  util.py
+
+./datos:
+clientes.csv  ventas.csv
+
+./documentos:
+informe.md  ventas_backup.csv

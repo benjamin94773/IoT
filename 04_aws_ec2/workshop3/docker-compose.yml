@@ -1,0 +1,20 @@
+services:
+  api:
+    build: ./app
+    container_name: api
+    restart: unless-stopped
+    environment:
+      - EC2_HOSTNAME=${HOSTNAME:-ip-172-31-26-92}
+    ports:
+      - "5000:5000"
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_proxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - api

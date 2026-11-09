@@ -1,0 +1,4 @@
+./archivos.txt
+./errores.txt
+./estudiantes.txt
+./evidencias.txt

@@ -1,0 +1,13 @@
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+
+  ubuntu:
+    build: ./ubuntu_service
+    volumes:
+      - ./logs:/var/log/shared
+    command: ["bash", "-lc", "while true; do sleep 30; done"]

@@ -7,7 +7,12 @@
 
 ## Estructura del Repositorio
 
-El repositorio se encuentra organizado por módulos de aprendizaje:
+El repositorio se encuentra organizado por módulos de aprendizaje y actividades:
+
+### 📁 [actividades_clase](./actividades_clase)
+- **01_diseno_ticketmaster:** Caso de estudio de la semana 2 sobre arquitectura cliente-servidor para venta masiva de boletos, alta concurrencia, balanceador de carga, locks en Redis con TTL de 10 min, colas RabbitMQ y persistencia ACID en PostgreSQL.
+- **02_autenticacion_apikeys:** Diseño del sistema de seguridad perimetral para APIs, diagramas de contexto y alto nivel, API Gateway, validación en caché Redis, hashing SHA-256 y Rate Limiting.
+- **03_bodegas_distribuidas_requisitos:** Especificación de requisitos (RF/RNF) y sesión de refinamiento del Proyecto Integrador (*Warehouse Cloud Platform*), patrón Saga para transferencias, CQRS, workers y telemetría IoT.
 
 ### 📁 [01_bash](./01_bash)
 - **Design:** Arquitectura de software SmartCampus (Capas, REST vs GraphQL, Escalabilidad, Autenticación SSO, Microservicios IoT, Polyglot Persistence con PostgreSQL, NoSQL y Redis).
